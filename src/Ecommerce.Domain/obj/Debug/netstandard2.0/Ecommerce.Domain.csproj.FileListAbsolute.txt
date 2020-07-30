@@ -1,0 +1,5 @@
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\bin\Debug\netstandard2.0\Ecommerce.Domain.deps.json
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\bin\Debug\netstandard2.0\Ecommerce.Domain.dll
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.csprojAssemblyReference.cache
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.AssemblyInfoInputs.cache
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.AssemblyInfo.cs

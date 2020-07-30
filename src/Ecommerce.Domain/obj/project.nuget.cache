@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8IbceqBxQZ0oCgU8aoyU3R/sw3F5yS12TOD/QPCoTeQFkDEteL092GvTLg3mchpAxnvYXZkQZLowVTZ97UsHzQ==",
+  "dgSpecHash": "RzRe88Gxs+HsnfVfzU/uqTdWK0qBR0yr3reapTVtpxUNIXcdOkhfaJNDguMbs9ZnHsrDVP9PynNlxkrG38cceA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Renan Barbosa\\source\\repos\\EcommerceBlueModas\\src\\Ecommerce.Domain\\Ecommerce.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Renan Barbosa\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
