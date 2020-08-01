@@ -374,3 +374,4 @@ C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.UI.Web\obj\
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.UI.Web\obj\Debug\netcoreapp3.1\Ecommerce.UI.Web.dll
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.UI.Web\obj\Debug\netcoreapp3.1\Ecommerce.UI.Web.pdb
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.UI.Web\obj\Debug\netcoreapp3.1\Ecommerce.UI.Web.genruntimeconfig.cache
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.UI.Web\obj\Debug\netcoreapp3.1\Razor\Views\Partials\_ProductCardView.cshtml.g.cs

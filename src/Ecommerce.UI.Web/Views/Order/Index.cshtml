@@ -1,0 +1,27 @@
+﻿@model List<Ecommerce.Domain.Order>
+@{
+    ViewData["Title"] = "Cesta de compras";
+}
+
+<div class="container margin_30">
+<div class="page_header">
+    <h1>Cesta de compras</h1>
+</div>
+        <table class="table table-striped cart-list">
+            <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+            </thead>
+            <tbody>
+                @foreach(Ecommerce.Domain.OrderItem item in Model.Items)
+                {
+                    Html.RenderPartial("../Partials/_OrderItemView", item);
+                }
+			</tbody>
+		</table>	
+</div>

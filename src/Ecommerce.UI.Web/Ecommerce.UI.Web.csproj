@@ -3,9 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
-    <UserSecretsId>ffe0cc87-0c9a-4039-bc96-ba3aa7c0a626</UserSecretsId>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
+    <UserSecretsId>ffe0cc87-0c9a-4039-bc96-ba3aa7c0a626</UserSecretsId>    
   </PropertyGroup>
 
   <ItemGroup>

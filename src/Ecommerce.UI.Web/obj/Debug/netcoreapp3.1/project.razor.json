@@ -20536,6 +20536,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Renan Barbosa\\source\\repos\\EcommerceBlueModas\\src\\Ecommerce.UI.Web\\Views\\Partials\\_ProductCardView.cshtml",
+      "TargetPath": "Views\\Partials\\_ProductCardView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Renan Barbosa\\source\\repos\\EcommerceBlueModas\\src\\Ecommerce.UI.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
