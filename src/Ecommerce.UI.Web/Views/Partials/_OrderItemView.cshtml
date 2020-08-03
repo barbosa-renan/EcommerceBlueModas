@@ -1,0 +1,25 @@
+@model Ecommerce.Domain.OrderItem
+<tr>
+    <td>
+        <div class="thumb_cart">
+            <img src="~/img/@Model.Product.ImagePath" class="lazy loaded" alt="@Model.Product.ImagePath">
+        </div>
+        <span class="item-cart">@Model.Product.Name</span>
+    </td>
+    <td>
+        <span>R$ </span><label id="lblUnitPrice_@Model.Product.Id">@Model.Product.UnitPrice</label>
+    </td>
+    <td>
+        <div class="numbers-row">
+            <div class="dec button_inc" onclick="objThat.DecrementOrderItem(@Model.Product.Id)">-</div>
+            <input type="text" value="1" id="txtQuantity_@Model.Product.Id" class="order-item-quantity" name="quantity_@Model.Product.Name">
+            <div class="inc button_inc" onclick="objThat.IncrementOrderItem(@Model.Product.Id)">+</div>
+        </div>
+    </td>
+    <td>
+        <label id="lblTotalCostProduct_@Model.Product.Id">R$0,00</label>
+    </td>
+    <td>
+        <a class="btn btn-sm remove-item-cart"><spam class="fa fa-trash"></spam> </a>
+    </td>
+</tr>
