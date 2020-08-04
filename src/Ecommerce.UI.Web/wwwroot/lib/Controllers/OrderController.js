@@ -6,33 +6,31 @@ $(document).ready(function () {
     objThat.UpdateBasketCounter();
 });
 
-this.CalculateOrder = function () {
-
-    let total = 0;
-
-    for (i = 1; i <= $("#tbOrder > tbody > tr").length; i++) {
-        this.UpdateSubTotal(i);
-    }
-
-    this.UpdateTotal();
-}
-
 this.IncrementOrderItem = function (id) {
 
-    let quantity = +$("#txtQuantity_" + id).val();
-    quantity += 1;
-
-    $("#txtQuantity_" + id).val(quantity);
-
-    this.UpdateSubTotal(id);
-    this.UpdateTotal();
-    this.UpdateBasketCounter();
+    this.ChangeQuantityOrderItem(id, true);
 }
 
 this.DecrementOrderItem = function (id) {
 
+    this.ChangeQuantityOrderItem(id, false);
+}
+
+this.CalculateOrder = function () {
+
+    $("#tbOrder > tbody > tr").each(function () {
+
+        let productId = +$(this).attr("product-id");
+        objThat.UpdateSubTotal(productId);
+    });
+
+    this.UpdateTotal();
+}
+
+this.ChangeQuantityOrderItem = function (id, isAdd) {
+
     let quantity = +$("#txtQuantity_" + id).val();
-    quantity -= 1;
+    quantity = isAdd ? quantity + 1 : quantity - 1;
 
     if (quantity < 0)
         quantity = 0;
@@ -54,9 +52,11 @@ this.UpdateTotal = function () {
 
     let total = 0;
 
-    for (i = 1; i <= $("#tbOrder > tbody > tr").length; i++) {
-        total += this.CalculateSubTotal(i);
-    }
+    $("#tbOrder > tbody > tr").each(function () {
+
+        let productId = +$(this).attr("product-id");
+        total += objThat.CalculateSubTotal(productId);
+    });
 
     $("#lblTotal").text(this.ToCurrency(total));
 }
@@ -78,8 +78,9 @@ this.UpdateBasketCounter = function () {
 
     let count = 0;
 
-    for (i = 1; i <= $("#tbOrder > tbody > tr").length; i++) {
-        count += +$("#txtQuantity_" + i).val();
+    for (i = 0; i < $("input[id^='txtQuantity_']").length; i++) {
+        debugger;
+        count += +$("input[id^='txtQuantity_']")[i].value;
     }
 
     $("#lblBasketCounter").text(count);

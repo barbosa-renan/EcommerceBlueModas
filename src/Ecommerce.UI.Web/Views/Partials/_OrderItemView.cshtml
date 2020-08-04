@@ -1,5 +1,5 @@
 @model Ecommerce.Domain.OrderItem
-<tr>
+<tr product-id="@Model.Product.Id">
     <td>
         <div class="thumb_cart">
             <img src="~/img/@Model.Product.ImagePath" class="lazy loaded" alt="@Model.Product.ImagePath">
