@@ -3,6 +3,7 @@
 $(document).ready(function () {
 
     objThat.CalculateOrder();
+    objThat.UpdateBasketCounter();
 });
 
 this.CalculateOrder = function () {
@@ -25,6 +26,7 @@ this.IncrementOrderItem = function (id) {
 
     this.UpdateSubTotal(id);
     this.UpdateTotal();
+    this.UpdateBasketCounter();
 }
 
 this.DecrementOrderItem = function (id) {
@@ -39,6 +41,7 @@ this.DecrementOrderItem = function (id) {
 
     this.UpdateSubTotal(id);
     this.UpdateTotal();
+    this.UpdateBasketCounter();
 }
 
 this.UpdateSubTotal = function (id) {
@@ -69,4 +72,15 @@ this.ToCurrency = function (value) {
 
     var number = +value;
     return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number);
+}
+
+this.UpdateBasketCounter = function () {
+
+    let count = 0;
+
+    for (i = 1; i <= $("#tbOrder > tbody > tr").length; i++) {
+        count += +$("#txtQuantity_" + i).val();
+    }
+
+    $("#lblBasketCounter").text(count);
 }

@@ -180,3 +180,13 @@ input.order-item-quantity {
         color: #FFF;
         background-color: #1a3983;
     }
+
+.label-counter {
+    background: #4479bb;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+}

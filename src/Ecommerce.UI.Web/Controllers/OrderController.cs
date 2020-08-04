@@ -33,38 +33,50 @@ namespace Ecommerce.UI.Web.Controllers
         /// <param name="productId">Primary key do produto</param>
         [HttpPost]
         [Route("add-to-cart")]
-        public void AddToCart([FromBody] int productId)
+        public int AddToCart([FromBody] int productId)
         {
+            int result = 0;
             OrderItem orderItem = null;
 
-            var product = _context.Product.Where(p => p.Id == productId)
-                                  .FirstOrDefault();
-
-            if (product != null)
+            try
             {
-                Order order = GetCurrentOrder();
-
-                orderItem = order.Items.Where(o => o.Product.Id == productId)
+                var product = _context.Product.Where(p => p.Id == productId)
                                           .FirstOrDefault();
 
-                if (orderItem == null)
+                if (product != null)
                 {
-                    orderItem = new OrderItem
+                    Order order = GetCurrentOrder();
+
+                    orderItem = order.Items.Where(o => o.Product.Id == productId)
+                                              .FirstOrDefault();
+
+                    if (orderItem == null)
                     {
-                        Product = product,
-                        Quantity = 1
-                    };
-                }
-                else
-                {
-                    order.Items.Remove(orderItem);
-                    orderItem.Quantity++;
-                }
+                        orderItem = new OrderItem
+                        {
+                            Product = product,
+                            Quantity = 1
+                        };
+                    }
+                    else
+                    {
+                        order.Items.Remove(orderItem);
+                        orderItem.Quantity++;
+                    }
 
-                order.Items.Add(orderItem);
+                    order.Items.Add(orderItem);
 
-                AddToCookieData(order);
+                    AddToCookieData(order);
+
+                    result = order.Items.Sum(x => x.Quantity);
+                }
             }
+            catch (Exception)
+            {
+                result = -1;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -109,6 +121,16 @@ namespace Ecommerce.UI.Web.Controllers
                 Secure = true,
                 MaxAge = TimeSpan.FromDays(30)
             };
+        }
+
+        /// <summary>
+        /// Retorna o total de itens da cesta de compras
+        /// </summary>
+        [Route("get-total-cart")]
+        public int GetTotalCart()
+        {
+            Order order = GetCurrentOrder();
+            return order.Items.Sum(x => x.Quantity);
         }
     }
 }

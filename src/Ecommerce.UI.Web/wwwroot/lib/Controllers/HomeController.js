@@ -1,12 +1,10 @@
 ﻿var objThat = this;
 
 $(document).ready(function () {
-
+    objThat.GetTotalCart();
 });
 
 this.AddToCart = function (productId) {
-
-    debugger;
 
     $.ajax({
         type: "POST",
@@ -15,15 +13,24 @@ this.AddToCart = function (productId) {
         dataType: 'JSON',
         headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
         data: JSON.stringify(productId),
-        success: function (json) {
+        success: function (res) {
 
-            debugger;
-            // alterar botão
-        },
-        error: function (error) {
+            $("#lblBasketCounter").text(res);
+        }
+    });
+}
 
-            debugger;
-            // exibir mensagem
+this.GetTotalCart = function () {
+
+    $.ajax({
+        type: "GET",
+        url: '/get-total-cart',
+        contentType: 'application/json',
+        dataType: 'JSON',
+        headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+        success: function (res) {
+
+            $("#lblBasketCounter").text(res);
         }
     });
 }
