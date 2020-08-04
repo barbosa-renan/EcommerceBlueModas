@@ -1,27 +1,43 @@
-﻿@model List<Ecommerce.Domain.Order>
+﻿@model Ecommerce.Domain.Order
 @{
     ViewData["Title"] = "Cesta de compras";
 }
 
-<div class="container margin_30">
-<div class="page_header">
-    <h1>Cesta de compras</h1>
+<div class="container">
+    <h1 class="header-title">Cesta de compras</h1>
+    <table id="tbOrder" class="table table-striped cart-list">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Ecommerce.Domain.OrderItem item in Model.Items)
+            {
+                Html.RenderPartial("../Partials/_OrderItemView", item);
+            }
+        </tbody>
+    </table>
 </div>
-        <table class="table table-striped cart-list">
-            <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                        <th>Subtotal</th>
-                        <th></th>
-                    </tr>
-            </thead>
-            <tbody>
-                @foreach(Ecommerce.Domain.OrderItem item in Model.Items)
-                {
-                    Html.RenderPartial("../Partials/_OrderItemView", item);
-                }
-			</tbody>
-		</table>	
+<div class="total-cart">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-xl-4 col-lg-4 col-md-6">
+                <ul>
+                    <li>
+                        <span>Total</span>
+                        <label id="lblTotal">R$ 0,00</label>
+                    </li>
+                </ul>
+                <a href="" class="btn btn-full-width">Continuar com o pedido</a>
+            </div>
+        </div>
+    </div>
 </div>
+@section Scripts {
+    <script src="~/lib/Controllers/OrderController.js"></script>
+}

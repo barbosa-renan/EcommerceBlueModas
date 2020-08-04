@@ -1,11 +1,11 @@
-C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\bin\Debug\netstandard2.0\Ecommerce.Domain.dll
-C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.csprojAssemblyReference.cache
-C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.AssemblyInfoInputs.cache
-C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.AssemblyInfo.cs
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\bin\Debug\netstandard2.0\Ecommerce.Data.deps.json
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\bin\Debug\netstandard2.0\Ecommerce.Data.dll
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\bin\Debug\netstandard2.0\Ecommerce.Data.pdb
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\bin\Debug\netstandard2.0\Ecommerce.Domain.dll
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\bin\Debug\netstandard2.0\Ecommerce.Domain.pdb
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.csprojAssemblyReference.cache
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.AssemblyInfoInputs.cache
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.AssemblyInfo.cs
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.csproj.CoreCompileInputs.cache
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.csproj.CopyComplete
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Data\obj\Debug\netstandard2.0\Ecommerce.Data.dll

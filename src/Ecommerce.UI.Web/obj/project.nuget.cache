@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jvUI3u833xcHjTchPPZUBgrYaxmEKLNSHWeWoak3JJYkT3silOs3cCyrKbie4UzzHE6KOlUOYSxyXQwOGIOjDw==",
+  "dgSpecHash": "4C4cvBgLdRtC1ht3fP/3FbMmYxpIltMuHOeUoSzqNusUGhWC39iYT/QSzgbBCp2d04mAdyd8ny7b1JdStmjPWQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Renan Barbosa\\source\\repos\\EcommerceBlueModas\\src\\Ecommerce.UI.Web\\Ecommerce.UI.Web.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Renan Barbosa\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Renan Barbosa\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

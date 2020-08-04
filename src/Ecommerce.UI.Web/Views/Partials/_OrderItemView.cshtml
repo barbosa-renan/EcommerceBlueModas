@@ -12,7 +12,7 @@
     <td>
         <div class="numbers-row">
             <div class="dec button_inc" onclick="objThat.DecrementOrderItem(@Model.Product.Id)">-</div>
-            <input type="text" value="1" id="txtQuantity_@Model.Product.Id" class="order-item-quantity" name="quantity_@Model.Product.Name">
+            <input type="text" asp-for="@Model.Quantity" id="txtQuantity_@Model.Product.Id" class="order-item-quantity" name="quantity_@Model.Product.Name" />
             <div class="inc button_inc" onclick="objThat.IncrementOrderItem(@Model.Product.Id)">+</div>
         </div>
     </td>
