@@ -20,6 +20,6 @@
         <label id="lblTotalCostProduct_@Model.Product.Id">R$0,00</label>
     </td>
     <td>
-        <a class="btn btn-sm remove-item-cart"><spam class="fa fa-trash"></spam> </a>
+        <a class="btn btn-sm remove-item-cart"><spam class="fa fa-trash" onclick="objThat.RemoveOrderItem(@Model.Product.Id)"></spam> </a>
     </td>
 </tr>

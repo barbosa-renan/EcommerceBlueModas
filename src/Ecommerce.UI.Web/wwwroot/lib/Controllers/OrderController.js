@@ -42,6 +42,19 @@ this.ChangeQuantityOrderItem = function (id, isAdd) {
     this.UpdateBasketCounter();
 }
 
+this.CalculateSubTotal = function (id) {
+
+    let unitPrice = +$("#lblUnitPrice_" + id).text().replace(",", ".");
+    let quantity = +$("#txtQuantity_" + id).val();
+    return (unitPrice * quantity);
+}
+
+this.ToCurrency = function (value) {
+
+    var number = +value;
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number);
+}
+
 this.UpdateSubTotal = function (id) {
 
     let subTotal = objThat.CalculateSubTotal(id);
@@ -61,19 +74,6 @@ this.UpdateTotal = function () {
     $("#lblTotal").text(this.ToCurrency(total));
 }
 
-this.CalculateSubTotal = function (id) {
-
-    let unitPrice = +$("#lblUnitPrice_" + id).text().replace(",", ".");
-    let quantity = +$("#txtQuantity_" + id).val();
-    return (unitPrice * quantity);
-}
-
-this.ToCurrency = function (value) {
-
-    var number = +value;
-    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number);
-}
-
 this.UpdateBasketCounter = function () {
 
     let count = 0;
@@ -84,4 +84,27 @@ this.UpdateBasketCounter = function () {
     }
 
     $("#lblBasketCounter").text(count);
+}
+
+this.RemoveOrderItem = function (id) {
+
+    $("#tbOrder > tbody > tr[product-id='" + id + "']").remove();
+
+    this.RemoveFromCart(id);
+
+    this.UpdateSubTotal(id);
+    this.UpdateTotal();
+    this.UpdateBasketCounter();
+}
+
+this.RemoveFromCart = function (id) {
+
+    $.ajax({
+        type: "POST",
+        url: '/remove-from-cart',
+        contentType: 'application/json',
+        dataType: 'JSON',
+        headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+        data: JSON.stringify(id)
+    });
 }

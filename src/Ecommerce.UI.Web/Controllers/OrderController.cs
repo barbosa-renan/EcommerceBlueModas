@@ -80,6 +80,33 @@ namespace Ecommerce.UI.Web.Controllers
         }
 
         /// <summary>
+        /// Remove um produto do carrinho com base no id informado.
+        /// </summary>
+        /// <param name="productId">Primary key do produto</param>
+        [HttpPost]
+        [Route("remove-from-cart")]
+        public bool RemoveFromCart([FromBody] int productId)
+        {
+            bool result = false;
+            
+            try
+            {
+                Order order = GetCurrentOrder();
+                order.Items.RemoveAll(o => o.Product.Id == productId);
+                
+                AddToCookieData(order);
+
+                result = true;
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Recupera os dados de um pedido se tiver um cookie já criado.
         /// </summary>
         /// <returns>Pedido do tipo order</returns>
