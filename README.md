@@ -1,7 +1,7 @@
 # E-commerce Blue Modas
 Projeto de avaliação para Jet E-Commerce
 
-**Tecnologias utilizadas**
+**O que foi utilizado neste projeto**
  - .NET Core 3.1
  - MVC 5
  - Entity Framework Core 3.1.6
