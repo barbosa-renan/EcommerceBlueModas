@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery.meiomask@1.1.14",
+      "destination": "wwwroot/jquery.meiomask/",
+      "files": [
+        "meiomask.min.js",
+        "meiomask.js"
+      ]
+    }
+  ]
+}

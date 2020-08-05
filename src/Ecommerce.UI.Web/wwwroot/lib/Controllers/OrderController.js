@@ -108,3 +108,36 @@ this.RemoveFromCart = function (id) {
         data: JSON.stringify(id)
     });
 }
+
+this.CheckOut = function () {
+
+    debugger;
+
+    let orderItems = [];    
+
+    $("#tbOrder > tbody > tr").each(function () {
+
+        let orderItem = {};
+        orderItem.Product = {};
+
+        let productId = +$(this).attr("product-id");
+
+        orderItem.Quantity = +$("#txtQuantity_" + productId).val();
+        orderItem.Product.Id = productId;
+            
+        orderItems.push(orderItem);                
+    });
+
+    $.ajax({
+        type: "POST",
+        url: '/check-out',
+        contentType: 'application/json',
+        dataType: 'JSON',
+        headers: { "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val() },
+        data: JSON.stringify(orderItems),
+        success: function (res) {
+
+            $("#frmCheckout").submit();
+        }
+    });
+}

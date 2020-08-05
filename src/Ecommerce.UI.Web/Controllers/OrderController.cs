@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Ecommerce.UI.Web.Controllers
 {
@@ -25,6 +26,50 @@ namespace Ecommerce.UI.Web.Controllers
         public IActionResult Index()
         {
             return View(GetCurrentOrder());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(Order order)
+        {
+            return RedirectToAction("Index", "Client");
+        }
+
+        /// <summary>
+        /// Atualiza a lista de itens do pedido com as quantidades selecionadas
+        /// </summary>
+        /// <param name="items">Itens do pedido</param>
+        [HttpPost]
+        [Route("check-out")]
+        public bool CheckOut([FromBody] OrderItem[] items)
+        {
+            bool result = false;
+
+            try
+            {
+                Order order = GetCurrentOrder();
+
+                for (int i = 0; i < items.Length; i++)
+                {
+                    OrderItem orderItem = order.Items
+                                               .Where(o => o.Product.Id == items[i].Product.Id)
+                                               .FirstOrDefault();
+
+                    order.Items.Remove(orderItem);
+                    orderItem.Quantity = items[i].Quantity;
+                    order.Items.Add(orderItem);
+                }
+
+                AddToCookieData(order);
+
+                result = true;
+            }
+            catch (Exception)
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -88,12 +133,12 @@ namespace Ecommerce.UI.Web.Controllers
         public bool RemoveFromCart([FromBody] int productId)
         {
             bool result = false;
-            
+
             try
             {
                 Order order = GetCurrentOrder();
                 order.Items.RemoveAll(o => o.Product.Id == productId);
-                
+
                 AddToCookieData(order);
 
                 result = true;

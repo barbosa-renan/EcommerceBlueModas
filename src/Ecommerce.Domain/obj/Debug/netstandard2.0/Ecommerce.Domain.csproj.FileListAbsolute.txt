@@ -6,3 +6,4 @@ C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.dll
 C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.pdb
+C:\Users\Renan Barbosa\source\repos\EcommerceBlueModas\src\Ecommerce.Domain\obj\Debug\netstandard2.0\Ecommerce.Domain.csprojAssemblyReference.cache
