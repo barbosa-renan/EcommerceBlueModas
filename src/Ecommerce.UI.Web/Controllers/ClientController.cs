@@ -1,7 +1,7 @@
 ﻿using Ecommerce.Data;
 using Ecommerce.Domain;
+using Ecommerce.UI.Web.Helper;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace Ecommerce.UI.Web.Controllers
@@ -26,11 +26,20 @@ namespace Ecommerce.UI.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(client);
+                Order order = CookieOrderHelper.GetCurrentOrder(HttpContext);
+                order.Client = client;
+
+                _context.Add(order);
+
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                //Remover cookie com detalhes do pedido
+                CookieOrderHelper.DeleteCookieData(HttpContext);
+
+                return RedirectToAction("Index", "OrderComplete", new { id=order.Id });
             }
-            return View(client);
+
+            return View();
         }
     }
 }

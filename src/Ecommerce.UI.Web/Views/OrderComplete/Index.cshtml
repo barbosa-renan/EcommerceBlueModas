@@ -1,0 +1,67 @@
+﻿@model Ecommerce.Domain.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h4>Pedido realizado</h4>
+<hr />
+<h5>Número do pedido: @Model.Id</h5>
+<hr />
+
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <h5>Informações do cliente</h5>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Client.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Client.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Client.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Client.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Client.Phone)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Client.Phone)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        <h5>Produtos</h5>
+        <hr />
+        <table class="table table-striped cart-list">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Ecommerce.Domain.OrderItem item in Model.Items)
+                {
+                    <tr>
+                        <td>
+                            @item.Product.Name
+                        </td>
+                        <td>
+                            R$ @item.Product.UnitPrice
+                        </td>
+                        <td>
+                            @item.Quantity
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

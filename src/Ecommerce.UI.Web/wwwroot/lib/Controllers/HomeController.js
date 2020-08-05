@@ -15,6 +15,11 @@ this.AddToCart = function (productId) {
         data: JSON.stringify(productId),
         success: function (res) {
 
+            debugger;
+
+            if (res > 0) {
+                alert("Produto adicionado!");
+            }
             $("#lblBasketCounter").text(res);
         }
     });

@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Data;
 using Ecommerce.Domain;
+using Ecommerce.UI.Web.Helper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -25,7 +26,7 @@ namespace Ecommerce.UI.Web.Controllers
 
         public IActionResult Index()
         {
-            return View(GetCurrentOrder());
+            return View(CookieOrderHelper.GetCurrentOrder(HttpContext));
         }
 
         [HttpPost]
@@ -47,7 +48,7 @@ namespace Ecommerce.UI.Web.Controllers
 
             try
             {
-                Order order = GetCurrentOrder();
+                Order order = CookieOrderHelper.GetCurrentOrder(HttpContext);
 
                 for (int i = 0; i < items.Length; i++)
                 {
@@ -60,7 +61,7 @@ namespace Ecommerce.UI.Web.Controllers
                     order.Items.Add(orderItem);
                 }
 
-                AddToCookieData(order);
+                CookieOrderHelper.AddToCookieData(order, HttpContext);
 
                 result = true;
             }
@@ -90,7 +91,7 @@ namespace Ecommerce.UI.Web.Controllers
 
                 if (product != null)
                 {
-                    Order order = GetCurrentOrder();
+                    Order order = CookieOrderHelper.GetCurrentOrder(HttpContext);
 
                     orderItem = order.Items.Where(o => o.Product.Id == productId)
                                               .FirstOrDefault();
@@ -111,7 +112,7 @@ namespace Ecommerce.UI.Web.Controllers
 
                     order.Items.Add(orderItem);
 
-                    AddToCookieData(order);
+                    CookieOrderHelper.AddToCookieData(order, HttpContext);
 
                     result = order.Items.Sum(x => x.Quantity);
                 }
@@ -136,10 +137,10 @@ namespace Ecommerce.UI.Web.Controllers
 
             try
             {
-                Order order = GetCurrentOrder();
+                Order order = CookieOrderHelper.GetCurrentOrder(HttpContext);
                 order.Items.RemoveAll(o => o.Product.Id == productId);
 
-                AddToCookieData(order);
+                CookieOrderHelper.AddToCookieData(order, HttpContext);
 
                 result = true;
             }
@@ -152,56 +153,12 @@ namespace Ecommerce.UI.Web.Controllers
         }
 
         /// <summary>
-        /// Recupera os dados de um pedido se tiver um cookie já criado.
-        /// </summary>
-        /// <returns>Pedido do tipo order</returns>
-        private Order GetCurrentOrder()
-        {
-            Order order = new Order();
-            order.Items = new List<OrderItem>();
-
-            string cookie = HttpContext.Request.Cookies[_cookieName];
-
-            if (cookie != null)
-            {
-                order = JsonConvert.DeserializeObject<Order>(cookie);
-            }
-
-            return order;
-        }
-
-        /// <summary>
-        /// Adiciona o pedido ao cookie
-        /// </summary>
-        /// <param name="order">Pedido com os produtos selecionados</param>
-        private void AddToCookieData(Order order)
-        {
-            CookieOptions options = CreateOptions();
-
-            string data = JsonConvert.SerializeObject(order);
-
-            HttpContext.Response.Cookies.Append(_cookieName, data, options);
-        }
-
-        /// <summary>
-        /// Configura as opções do cookie.
-        /// </summary>
-        private CookieOptions CreateOptions()
-        {
-            return new CookieOptions
-            {
-                Secure = true,
-                MaxAge = TimeSpan.FromDays(30)
-            };
-        }
-
-        /// <summary>
         /// Retorna o total de itens da cesta de compras
         /// </summary>
         [Route("get-total-cart")]
         public int GetTotalCart()
         {
-            Order order = GetCurrentOrder();
+            Order order = CookieOrderHelper.GetCurrentOrder(HttpContext);
             return order.Items.Sum(x => x.Quantity);
         }
     }
